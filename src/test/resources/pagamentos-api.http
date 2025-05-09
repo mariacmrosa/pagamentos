@@ -1,0 +1,58 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+
+
+
+### Criar um novo pagamento
+# @name criarPagamento
+POST http://localhost:8080/pagamentos
+Content-Type: application/json
+
+{
+  "valor": 300.50,
+  "nome": "Carlos Pereira",
+  "numero": "5555666677778888",
+  "expiracao": "11/2029",
+  "codigo": "111",
+  "pedidoId": 102,
+  "formaDePagamentoId": 1
+}
+
+### Guardar o ID do pagamento criado
+# > {% client.global.set("pagamentoId", response.body.id); %}
+
+### Listar todos os pagamentos
+# @name listarPagamentos
+GET http://localhost:8080/pagamentos
+
+### Listar pagamentos com paginação
+# @name listarPagamentosPaginado
+GET http://localhost:8080/pagamentos?page=0&size=2
+
+### Detalhar o pagamento criado (usando a variável global 'pagamentoId')
+# @name detalharPagamento
+GET http://localhost:8080/pagamentos/{{pagamentoId}}
+
+### Atualizar o pagamento criado (usando a variável global 'pagamentoId')
+# Certifique-se que seu PUT no controller é /pagamentos/{id}
+# @name atualizarPagamento
+PUT http://localhost:8080/pagamentos/{{pagamentoId}}
+Content-Type: application/json
+
+{
+  "valor": 310.00,
+  "nome": "Carlos Pereira (Modificado)",
+  "numero": "5555666677778888",
+  "expiracao": "11/2029",
+  "codigo": "112",
+  "status": "CANCELADO",
+  "pedidoId": 102,
+  "formaPagamentoId": 1
+}
+
+### Excluir o pagamento criado (usando a variável global 'pagamentoId')
+# @name excluirPagamento
+DELETE http://localhost:8080/pagamentos/{{pagamentoId}}

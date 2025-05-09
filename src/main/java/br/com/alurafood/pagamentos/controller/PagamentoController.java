@@ -1,8 +1,6 @@
 package br.com.alurafood.pagamentos.controller;
 
 import br.com.alurafood.pagamentos.dto.PagamentoDto;
-import br.com.alurafood.pagamentos.model.Pagamento;
-import br.com.alurafood.pagamentos.repository.PagamentoRepository;
 import br.com.alurafood.pagamentos.service.PagamentoService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;

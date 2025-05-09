@@ -19,5 +19,5 @@ public class PagamentoDto {
     private String codigo;
     private Status status;
     private Long pedidoId;
-    private Long formaPagamentoId;
+    private Long formaDePagamentoId;
 }
